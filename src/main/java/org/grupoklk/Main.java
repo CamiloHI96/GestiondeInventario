@@ -2,7 +2,7 @@ package org.grupoklk;
 
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean opcion = true;
@@ -10,32 +10,29 @@ public class main {
         while (opcion) {
             try {
                 System.out.println("Seleccione una opción:");
-                System.out.println("1. Administrador");
-                System.out.println("2. Gerente");
-                System.out.println("3. Vendedor");
-                System.out.println("4. Salir");
+                System.out.println("1. Español");
+                System.out.println("2. English");
+                System.out.println("3. Salir / Exit");
                 System.out.print("Elija una opción: ");
 
                 String input = scanner.nextLine().toLowerCase();
 
                 switch (input) {
                     case "1":
-                    case "administrador":
-                        System.out.println("Ha seleccionado Administrador.");
+                    case "español":
+                        System.out.println("Ha seleccionado Programa En Español.");
+                        Menu.espanol();
                         break;
 
                     case "2":
-                    case "gerente":
-                        System.out.println("Ha seleccionado Gerente.");
+                    case "english":
+                        System.out.println("You have selected Program In English.");
+                        Menu.english();
                         break;
 
                     case "3":
-                    case "vendedor":
-                        System.out.println("Ha seleccionado Vendedor.");
-                        break;
-
-                    case "4":
                     case "salir":
+                    case "exit":
                         System.out.println("Saliendo del programa...");
                         opcion = false;
                         break;
@@ -48,7 +45,7 @@ public class main {
                 System.out.println("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
                 scanner.nextLine();
             }
-            scanner.close();
         }
+        scanner.close();
     }
 }
