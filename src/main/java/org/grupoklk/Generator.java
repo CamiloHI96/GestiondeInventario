@@ -28,4 +28,19 @@ public class Generator {
         }
         return usuarios;
     }
+
+    public static List<Product> generarProductos(int cantidad) {
+        Faker faker = new Faker();
+        List<Product> productos = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            productos.add(new Product(
+                    faker.idNumber().valid(),
+                    faker.commerce().productName(),
+                    faker.commerce().material(),
+                    faker.number().randomDouble(2, 10, 1000),
+                    faker.number().numberBetween(1, 100)
+            ));
+        }
+        return productos;
+    }
 }
