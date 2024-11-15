@@ -1,0 +1,119 @@
+00:25:09.712 [main] INFO  org.grupoklk.Main - Seleccione una opción:
+00:25:13.017 [main] INFO  org.grupoklk.Main - Ha seleccionado Programa En Español.
+00:25:13.019 [main] INFO  org.grupoklk.Menu - Bienvenido al programa de la tienda electrónica
+00:25:19.017 [main] INFO  org.grupoklk.Menu - Ha seleccionado Administrador.
+00:25:19.017 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:25:30.020 [main] INFO  org.grupoklk.Menu - ¿Cuántos usuarios desea generar? 
+00:25:36.414 [main] INFO  org.grupoklk.Menu - 5 usuarios generados exitosamente.
+00:25:36.415 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:25:44.024 [main] INFO  org.grupoklk.Menu - 
+Usuarios generados:
+00:25:44.058 [main] INFO  org.grupoklk.Menu - User{name='elijah.hagenes', password='wc4enbvl', rol='Administrador'}
+00:25:44.058 [main] INFO  org.grupoklk.Menu - User{name='landon.goyette', password='xnv6224fpqxz', rol='Gerente'}
+00:25:44.059 [main] INFO  org.grupoklk.Menu - User{name='kareem.douglas', password='upa7tvxx', rol='Gerente'}
+00:25:44.059 [main] INFO  org.grupoklk.Menu - User{name='brady.kozey', password='obilalkx3to1o0', rol='Vendedor'}
+00:25:44.060 [main] INFO  org.grupoklk.Menu - User{name='tomas.bartoletti', password='lu2qc6jone8e', rol='Administrador'}
+00:25:44.060 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:25:51.025 [main] INFO  org.grupoklk.Menu - ¿Cuántos productos desea generar? 
+00:25:54.117 [main] INFO  org.grupoklk.Menu - 5 productos generados exitosamente.
+00:25:54.119 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:25:59.029 [main] INFO  org.grupoklk.Menu - Productos disponibles para la venta:
+00:25:59.061 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:26:07.033 [main] INFO  org.grupoklk.Menu - ¿Cuántos clientes desea generar? 
+00:26:12.319 [main] INFO  org.grupoklk.Menu - 4 clientes generados exitosamente.
+00:26:12.319 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:26:16.035 [main] INFO  org.grupoklk.Menu - 
+Clientes generados:
+00:26:16.062 [main] INFO  org.grupoklk.Menu - 
+Menú Administrador (Español)
+00:26:21.038 [main] INFO  org.grupoklk.Menu - Saliendo del menú de administrador...
+00:26:21.038 [main] INFO  org.grupoklk.Menu - Bienvenido al programa de la tienda electrónica
+00:26:27.039 [main] INFO  org.grupoklk.Menu - Ha seleccionado Gerente.
+00:26:27.039 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:26:29.039 [main] INFO  org.grupoklk.Menu - Productos disponibles para la venta:
+00:26:29.040 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:26:33.041 [main] INFO  org.grupoklk.Menu - Seleccione un vendedor de la siguiente lista:
+00:26:33.049 [main] INFO  org.grupoklk.Menu - 1. brady.kozey
+00:26:33.049 [main] INFO  org.grupoklk.Menu - Ingrese el número del vendedor: 
+00:26:41.044 [main] INFO  org.grupoklk.Menu - Selección inválida. Por favor, elija un número de la lista.
+00:26:41.044 [main] INFO  org.grupoklk.Menu - Ingrese el número del vendedor: 
+00:26:45.045 [main] INFO  org.grupoklk.Menu - Informe de ventas del vendedor: brady.kozey
+00:26:45.045 [main] INFO  org.grupoklk.Menu - No se encontraron ventas realizadas por este vendedor.
+00:26:45.045 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:26:49.045 [main] INFO  org.grupoklk.Menu - Saliendo del menú de gerente...
+00:26:49.045 [main] INFO  org.grupoklk.Menu - Bienvenido al programa de la tienda electrónica
+00:26:52.047 [main] INFO  org.grupoklk.Menu - Ha seleccionado Vendedor.
+00:26:52.047 [main] INFO  org.grupoklk.Menu - 
+Menú Vendedor (Español)
+00:26:54.048 [main] INFO  org.grupoklk.Menu - Productos disponibles para la venta:
+00:26:54.049 [main] INFO  org.grupoklk.Menu - 
+Menú Vendedor (Español)
+00:26:56.049 [main] INFO  org.grupoklk.Menu - 
+Clientes generados:
+00:26:56.049 [main] INFO  org.grupoklk.Menu - 
+Menú Vendedor (Español)
+00:26:58.050 [main] INFO  org.grupoklk.Menu - Seleccione un vendedor de la siguiente lista:
+00:26:58.051 [main] INFO  org.grupoklk.Menu - Ingrese el número del vendedor: 
+00:27:01.050 [main] INFO  org.grupoklk.Menu - 
+Clientes disponibles:
+00:27:01.050 [main] INFO  org.grupoklk.Menu - Cliente{cedula='0486520415', username='laila.olson', email='kermit.kautzer@hotmail.com', address='5939 Streich Station, Elmofurt, HI 75744-4981'}
+00:27:01.050 [main] INFO  org.grupoklk.Menu - Cliente{cedula='0122351905', username='charissa.turcotte', email='denver.mante@yahoo.com', address='951 Layla Highway, Kshlerinfort, NV 61382'}
+00:27:01.051 [main] INFO  org.grupoklk.Menu - Cliente{cedula='0882505562', username='abbey.moore', email='samuel.heathcote@hotmail.com', address='6894 O'Reilly Wells, New June, NM 22663'}
+00:27:01.051 [main] INFO  org.grupoklk.Menu - Cliente{cedula='0872184329', username='rosy.lind', email='blaine.bernier@hotmail.com', address='79907 Wm Stream, East Kris, ME 25493'}
+00:27:01.051 [main] INFO  org.grupoklk.Menu - Ingrese el ID del cliente para realizar la venta: 
+00:27:11.054 [main] INFO  org.grupoklk.Menu - 
+Productos disponibles para la venta:
+00:27:11.054 [main] INFO  org.grupoklk.Menu - Product{id='407-64-6282', name='Practical Marble Gloves', description='Aluminum', price='947.94', stock='7'}
+00:27:11.054 [main] INFO  org.grupoklk.Menu - Product{id='631-92-2370', name='Durable Paper Hat', description='Rubber', price='394.94', stock='8'}
+00:27:11.054 [main] INFO  org.grupoklk.Menu - Product{id='150-14-9360', name='Enormous Wooden Shoes', description='Aluminum', price='949.8', stock='7'}
+00:27:11.055 [main] INFO  org.grupoklk.Menu - Product{id='085-67-3204', name='Rustic Steel Wallet', description='Plastic', price='397.5', stock='7'}
+00:27:11.055 [main] INFO  org.grupoklk.Menu - Product{id='485-85-9966', name='Sleek Silk Wallet', description='Bronze', price='148.48', stock='12'}
+00:27:11.055 [main] INFO  org.grupoklk.Menu - 
+Ingrese el ID del producto que desea vender (o 'salir' para terminar): 
+00:27:22.058 [main] INFO  org.grupoklk.Menu - Ingrese la cantidad a vender: 
+00:27:24.087 [main] INFO  org.grupoklk.Menu - ¿Desea vender otro producto? (s/n): 
+00:27:27.060 [main] INFO  org.grupoklk.Menu - 
+Productos disponibles para la venta:
+00:27:27.060 [main] INFO  org.grupoklk.Menu - Product{id='407-64-6282', name='Practical Marble Gloves', description='Aluminum', price='947.94', stock='5'}
+00:27:27.061 [main] INFO  org.grupoklk.Menu - Product{id='631-92-2370', name='Durable Paper Hat', description='Rubber', price='394.94', stock='8'}
+00:27:27.061 [main] INFO  org.grupoklk.Menu - Product{id='150-14-9360', name='Enormous Wooden Shoes', description='Aluminum', price='949.8', stock='7'}
+00:27:27.061 [main] INFO  org.grupoklk.Menu - Product{id='085-67-3204', name='Rustic Steel Wallet', description='Plastic', price='397.5', stock='7'}
+00:27:27.061 [main] INFO  org.grupoklk.Menu - Product{id='485-85-9966', name='Sleek Silk Wallet', description='Bronze', price='148.48', stock='12'}
+00:27:27.061 [main] INFO  org.grupoklk.Menu - 
+Ingrese el ID del producto que desea vender (o 'salir' para terminar): 
+00:27:42.099 [main] INFO  org.grupoklk.Menu - Ingrese la cantidad a vender: 
+00:27:44.100 [main] INFO  org.grupoklk.Menu - ¿Desea vender otro producto? (s/n): 
+00:27:47.103 [main] INFO  org.grupoklk.Menu - 
+Compra finalizada.
+00:27:47.143 [main] INFO  org.grupoklk.Menu - ¡Gracias por su compra!
+00:27:47.144 [main] INFO  org.grupoklk.Menu - 
+Menú Vendedor (Español)
+00:28:06.110 [main] INFO  org.grupoklk.Menu - Saliendo del menú de vendedor...
+00:28:06.110 [main] INFO  org.grupoklk.Menu - Bienvenido al programa de la tienda electrónica
+00:28:08.112 [main] INFO  org.grupoklk.Menu - Ha seleccionado Gerente.
+00:28:08.112 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:28:12.114 [main] INFO  org.grupoklk.Menu - Productos disponibles para la venta:
+00:28:12.114 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:28:14.114 [main] INFO  org.grupoklk.Menu - Seleccione un vendedor de la siguiente lista:
+00:28:14.114 [main] INFO  org.grupoklk.Menu - 1. brady.kozey
+00:28:14.114 [main] INFO  org.grupoklk.Menu - Ingrese el número del vendedor: 
+00:28:17.115 [main] INFO  org.grupoklk.Menu - Informe de ventas del vendedor: brady.kozey
+00:28:17.116 [main] INFO  org.grupoklk.Menu - Total de ventas realizadas: $3883.38
+00:28:17.116 [main] INFO  org.grupoklk.Menu - 
+Menú Gerente (Español)
+00:28:21.116 [main] INFO  org.grupoklk.Menu - Saliendo del menú de gerente...
+00:28:21.116 [main] INFO  org.grupoklk.Menu - Bienvenido al programa de la tienda electrónica
+00:28:23.116 [main] INFO  org.grupoklk.Menu - Saliendo del menú en español...
+00:28:23.116 [main] INFO  org.grupoklk.Main - Seleccione una opción:
+00:28:25.117 [main] INFO  org.grupoklk.Main - Saliendo del programa...

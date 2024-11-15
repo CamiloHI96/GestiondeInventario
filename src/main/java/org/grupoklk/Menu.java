@@ -1,10 +1,13 @@
 package org.grupoklk;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
+    static Logger logger = LogManager.getLogger(Menu.class);
     private static final Scanner scanner = new Scanner(System.in);
     private static List<User> usuariosGenerados;
     private static List<Cliente> clientesGenerados;
@@ -16,7 +19,7 @@ public class Menu {
 
         while (opcion) {
             try {
-                System.out.println("Bienvenido al programa de la tienda electrónica");
+                logger.info("Bienvenido al programa de la tienda electrónica");
                 System.out.println("Seleccione una opción:");
                 System.out.println("1. Administrador");
                 System.out.println("2. Gerente");
@@ -29,34 +32,34 @@ public class Menu {
                 switch (input) {
                     case "1":
                     case "administrador":
-                        System.out.println("Ha seleccionado Administrador.");
+                        logger.info("Ha seleccionado Administrador.");
                         adminEsp();
                         break;
 
                     case "2":
                     case "gerente":
-                        System.out.println("Ha seleccionado Gerente.");
+                        logger.info("Ha seleccionado Gerente.");
                         gerenteEsp();
                         break;
 
                     case "3":
                     case "vendedor":
-                        System.out.println("Ha seleccionado Vendedor.");
+                        logger.info("Ha seleccionado Vendedor.");
                         vendedorEsp();
                         break;
 
                     case "4":
                     case "salir":
-                        System.out.println("Saliendo del menú en español...");
+                        logger.info("Saliendo del menú en español...");
                         opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Opción no válida. Por favor, intente nuevamente.");
+                        logger.info("Error: Opción no válida. Por favor, intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
+                logger.info("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
             }
         }
     }
@@ -66,7 +69,7 @@ public class Menu {
 
         while (opcion) {
             try {
-                System.out.println("\nMenú Administrador (Español)");
+                logger.info("\nMenú Administrador (Español)");
                 System.out.println("1. Generar Usuarios");
                 System.out.println("2. Mostrar Usuarios");
                 System.out.println("3. Generar Productos");
@@ -135,16 +138,16 @@ public class Menu {
 
                     case "11":
                     case "salir":
-                        System.out.println("Saliendo del menú de administrador...");
+                        logger.info("Saliendo del menú de administrador...");
                         opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Opción no válida. Intente nuevamente.");
+                        logger.info("Error: Opción no válida. Intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ocurrió un problema. Intente nuevamente.");
+                logger.info("Error: Ocurrió un problema. Intente nuevamente.");
             }
         }
     }
@@ -154,7 +157,7 @@ public class Menu {
 
         while (opcion) {
             try {
-                System.out.println("\nMenú Gerente (Español)");
+                logger.info("\nMenú Gerente (Español)");
                 System.out.println("1. Generar Informe de Ventas por Vendedor");
                 System.out.println("2. Generar Informe de Inventario");
                 System.out.println("3. Salir");
@@ -175,16 +178,16 @@ public class Menu {
 
                     case "3":
                     case "salir":
-                        System.out.println("Saliendo del menú de gerente...");
+                        logger.info("Saliendo del menú de gerente...");
                         opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Opción no válida. Intente nuevamente.");
+                        logger.info("Error: Opción no válida. Intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ocurrió un problema. Intente nuevamente.");
+                logger.info("Error: Ocurrió un problema. Intente nuevamente.");
             }
         }
     }
@@ -194,7 +197,7 @@ public class Menu {
 
         while (opcion) {
             try {
-                System.out.println("\nMenú Vendedor (Español)");
+                logger.info("\nMenú Vendedor (Español)");
                 System.out.println("1. Ver Productos Disponibles");
                 System.out.println("2. Ver Clientes");
                 System.out.println("3. Realizar Venta");
@@ -221,22 +224,22 @@ public class Menu {
 
                     case "4":
                     case "salir":
-                        System.out.println("Saliendo del menú de vendedor...");
+                        logger.info("Saliendo del menú de vendedor...");
                         opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Opción no válida. Intente nuevamente.");
+                        logger.info("Error: Opción no válida. Intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ocurrió un problema. Intente nuevamente.");
+                logger.info("Error: Ocurrió un problema. Intente nuevamente.");
             }
         }
     }
 
     private static void generarUsuarios() {
-        System.out.print("¿Cuántos usuarios desea generar? ");
+        logger.info("¿Cuántos usuarios desea generar? ");
         int cantidad = Integer.parseInt(scanner.nextLine());
 
         if (usuariosGenerados == null) {
@@ -245,22 +248,22 @@ public class Menu {
             usuariosGenerados.addAll(Generator.generarUsuarios(cantidad));
         }
 
-        System.out.println(cantidad + " usuarios generados exitosamente.");
+        logger.info(cantidad + " usuarios generados exitosamente.");
     }
 
     private static void mostrarUsuarios() {
         if (usuariosGenerados == null || usuariosGenerados.isEmpty()) {
-            System.out.println("No hay usuarios generados para mostrar.");
+            logger.info("No hay usuarios generados para mostrar.");
         } else {
-            System.out.println("\nUsuarios generados:");
+            logger.info("\nUsuarios generados:");
             for (User usuario : usuariosGenerados) {
-                System.out.println(usuario);
+                logger.info(usuario);
             }
         }
     }
 
     private static void generarProductos() {
-        System.out.print("¿Cuántos productos desea generar? ");
+        logger.info("¿Cuántos productos desea generar? ");
         int cantidad = Integer.parseInt(scanner.nextLine());
 
         if (productosGenerados == null) {
@@ -269,11 +272,11 @@ public class Menu {
             productosGenerados.addAll(Generator.generarProductos(cantidad));
         }
 
-        System.out.println(cantidad + " productos generados exitosamente.");
+        logger.info(cantidad + " productos generados exitosamente.");
     }
 
     public static void mostrarProductos() {
-        System.out.println("Productos disponibles para la venta:");
+        logger.info("Productos disponibles para la venta:");
         boolean productosDisponibles = false;
 
         for (Product producto : productosGenerados) {
@@ -284,54 +287,54 @@ public class Menu {
         }
 
         if (!productosDisponibles) {
-            System.out.println("No hay productos con stock disponible.");
+            logger.info("No hay productos con stock disponible.");
         }
     }
 
     private static void agregarStock() {
-        System.out.print("Ingrese el ID del producto al que desea agregar stock: ");
+        logger.info("Ingrese el ID del producto al que desea agregar stock: ");
         String id = scanner.nextLine();
         Product producto = buscarProductoPorId(id);
 
         if (producto != null) {
-            System.out.print("Ingrese la cantidad de stock a agregar: ");
+            logger.info("Ingrese la cantidad de stock a agregar: ");
             int cantidad = Integer.parseInt(scanner.nextLine());
             producto.actualizarStock(producto.getStock() + cantidad);
-            System.out.println("Stock actualizado exitosamente. Nuevo stock: " + producto.getStock());
+            logger.info("Stock actualizado exitosamente. Nuevo stock: " + producto.getStock());
         } else {
-            System.out.println("Producto no encontrado.");
+            logger.info("Producto no encontrado.");
         }
     }
 
     private static void reducirStock() {
-        System.out.print("Ingrese el ID del producto al que desea reducir stock: ");
+        logger.info("Ingrese el ID del producto al que desea reducir stock: ");
         String id = scanner.nextLine();
         Product producto = buscarProductoPorId(id);
 
         if (producto != null) {
-            System.out.print("Ingrese la cantidad de stock a reducir: ");
+            logger.info("Ingrese la cantidad de stock a reducir: ");
             int cantidad = Integer.parseInt(scanner.nextLine());
             if (cantidad <= producto.getStock()) {
                 producto.actualizarStock(producto.getStock() - cantidad);
-                System.out.println("Stock actualizado exitosamente. Nuevo stock: " + producto.getStock());
+                logger.info("Stock actualizado exitosamente. Nuevo stock: " + producto.getStock());
             } else {
-                System.out.println("Error: La cantidad a reducir excede el stock actual.");
+                logger.info("Error: La cantidad a reducir excede el stock actual.");
             }
         } else {
-            System.out.println("Producto no encontrado.");
+            logger.info("Producto no encontrado.");
         }
     }
 
     private static void eliminarProducto() {
-        System.out.print("Ingrese el ID del producto que desea eliminar: ");
+        logger.info("Ingrese el ID del producto que desea eliminar: ");
         String id = scanner.nextLine();
         Product producto = buscarProductoPorId(id);
 
         if (producto != null) {
             productosGenerados.remove(producto);
-            System.out.println("Producto eliminado exitosamente.");
+            logger.info("Producto eliminado exitosamente.");
         } else {
-            System.out.println("Producto no encontrado.");
+            logger.info("Producto no encontrado.");
         }
     }
 
@@ -351,19 +354,19 @@ public class Menu {
             clientesGenerados = new ArrayList<>();
         }
 
-        System.out.print("¿Cuántos clientes desea generar? ");
+        logger.info("¿Cuántos clientes desea generar? ");
         int cantidad = Integer.parseInt(scanner.nextLine());
 
         clientesGenerados.addAll(Generator.generarClientes(cantidad));
 
-        System.out.println(cantidad + " clientes generados exitosamente.");
+        logger.info(cantidad + " clientes generados exitosamente.");
     }
 
     private static void mostrarClientes() {
         if (clientesGenerados == null || clientesGenerados.isEmpty()) {
-            System.out.println("No hay clientes generados para mostrar.");
+            logger.info("No hay clientes generados para mostrar.");
         } else {
-            System.out.println("\nClientes generados:");
+            logger.info("\nClientes generados:");
             for (Cliente cliente : clientesGenerados) {
                 System.out.println(cliente);
             }
@@ -371,15 +374,15 @@ public class Menu {
     }
 
     private static void eliminarCliente() {
-        System.out.print("Ingrese la cédula del cliente que desea eliminar: ");
+        logger.info("Ingrese la cédula del cliente que desea eliminar: ");
         String cedula = scanner.nextLine();
 
         Cliente cliente = buscarClientePorCedula(cedula);
         if (cliente != null) {
             clientesGenerados.remove(cliente);
-            System.out.println("Cliente eliminado exitosamente.");
+            logger.info("Cliente eliminado exitosamente.");
         } else {
-            System.out.println("Cliente no encontrado.");
+            logger.info("Cliente no encontrado.");
         }
     }
 
@@ -401,62 +404,62 @@ public class Menu {
         }
 
         if (vendedores.isEmpty()) {
-            System.out.println("No hay vendedores disponibles.");
+            logger.info("No hay vendedores disponibles.");
             return;
         }
 
-        System.out.println("Seleccione un vendedor de la siguiente lista:");
+        logger.info("Seleccione un vendedor de la siguiente lista:");
         for (int i = 0; i < vendedores.size(); i++) {
             System.out.println((i + 1) + ". " + vendedores.get(i).getUsername());
         }
 
         int seleccionVendedor = -1;
         while (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
-            System.out.print("Ingrese el número del vendedor: ");
+            logger.info("Ingrese el número del vendedor: ");
             try {
                 seleccionVendedor = Integer.parseInt(scanner.nextLine()) - 1;
                 if (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
-                    System.out.println("Selección inválida. Por favor, elija un número de la lista.");
+                    logger.info("Selección inválida. Por favor, elija un número de la lista.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe ingresar un número válido.");
+                logger.info("Error: Debe ingresar un número válido.");
             }
         }
 
         User vendedorSeleccionado = vendedores.get(seleccionVendedor);
 
-        System.out.println("\nClientes disponibles:");
+        logger.info("\nClientes disponibles:");
         for (Cliente cliente : clientesGenerados) {
-            System.out.println(cliente);
+            logger.info(cliente);
         }
 
-        System.out.print("Ingrese el ID del cliente para realizar la venta: ");
+        logger.info("Ingrese el ID del cliente para realizar la venta: ");
         String idCliente = scanner.nextLine();
         Cliente cliente = buscarClientePorCedula(idCliente);
 
         if (cliente == null) {
-            System.out.println("Cliente no encontrado.");
+            logger.info("Cliente no encontrado.");
             return;
         }
 
         double totalCompra = 0;
 
         while (true) {
-            System.out.println("\nProductos disponibles para la venta:");
+            logger.info("\nProductos disponibles para la venta:");
             boolean productosDisponibles = false;
             for (Product producto : productosGenerados) {
                 if (producto.getStock() > 0) {
-                    System.out.println(producto);
+                    logger.info(producto);
                     productosDisponibles = true;
                 }
             }
 
             if (!productosDisponibles) {
-                System.out.println("No hay productos con stock disponible para la venta.");
+                logger.info("No hay productos con stock disponible para la venta.");
                 break;
             }
 
-            System.out.print("\nIngrese el ID del producto que desea vender (o 'salir' para terminar): ");
+            logger.info("\nIngrese el ID del producto que desea vender (o 'salir' para terminar): ");
             String idProducto = scanner.nextLine();
 
             if (idProducto.equalsIgnoreCase("salir")) {
@@ -466,15 +469,15 @@ public class Menu {
             Product productoSeleccionado = buscarProductoPorId(idProducto);
 
             if (productoSeleccionado == null || productoSeleccionado.getStock() <= 0) {
-                System.out.println("Producto no disponible o sin stock.");
+                logger.info("Producto no disponible o sin stock.");
                 continue;
             }
 
-            System.out.print("Ingrese la cantidad a vender: ");
+            logger.info("Ingrese la cantidad a vender: ");
             int cantidad = Integer.parseInt(scanner.nextLine());
 
             if (cantidad > productoSeleccionado.getStock()) {
-                System.out.println("No hay suficiente stock para la cantidad solicitada.");
+                logger.info("No hay suficiente stock para la cantidad solicitada.");
                 continue;
             }
 
@@ -482,11 +485,11 @@ public class Menu {
             totalCompra += totalProducto;
 
             Venta nuevaVenta = new Venta(vendedorSeleccionado, cliente, productoSeleccionado, cantidad);
-            ventasCliente.add(nuevaVenta);  // Usar la lista global
+            ventasCliente.add(nuevaVenta);
 
             productoSeleccionado.actualizarStock(productoSeleccionado.getStock() - cantidad);
 
-            System.out.print("¿Desea vender otro producto? (s/n): ");
+            logger.info("¿Desea vender otro producto? (s/n): ");
             String respuesta = scanner.nextLine();
             if (respuesta.equalsIgnoreCase("n")) {
                 break;
@@ -494,15 +497,15 @@ public class Menu {
         }
 
         if (!ventasCliente.isEmpty()) {
-            System.out.println("\nCompra finalizada.");
+            logger.info("\nCompra finalizada.");
             System.out.println("Total de la compra: " + totalCompra);
             System.out.println("Productos comprados:");
             for (Venta venta : ventasCliente) {
                 System.out.println(venta);
             }
-            System.out.println("¡Gracias por su compra!");
+            logger.info("¡Gracias por su compra!");
         } else {
-            System.out.println("No se realizó ninguna venta.");
+            logger.info("No se realizó ninguna venta.");
         }
     }
     
@@ -515,32 +518,31 @@ public class Menu {
         }
 
         if (vendedores.isEmpty()) {
-            System.out.println("No hay vendedores disponibles.");
+            logger.info("No hay vendedores disponibles.");
             return;
         }
 
-        System.out.println("Seleccione un vendedor de la siguiente lista:");
+        logger.info("Seleccione un vendedor de la siguiente lista:");
         for (int i = 0; i < vendedores.size(); i++) {
-            System.out.println((i + 1) + ". " + vendedores.get(i).getUsername());
+            logger.info((i + 1) + ". " + vendedores.get(i).getUsername());
         }
 
         int seleccionVendedor = -1;
         while (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
-            System.out.print("Ingrese el número del vendedor: ");
+            logger.info("Ingrese el número del vendedor: ");
             try {
                 seleccionVendedor = Integer.parseInt(scanner.nextLine()) - 1;
                 if (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
-                    System.out.println("Selección inválida. Por favor, elija un número de la lista.");
+                    logger.info("Selección inválida. Por favor, elija un número de la lista.");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe ingresar un número válido.");
+                logger.info("Error: Debe ingresar un número válido.");
             }
         }
 
         User vendedorSeleccionado = vendedores.get(seleccionVendedor);
-        System.out.println("Informe de ventas del vendedor: " + vendedorSeleccionado.getUsername());
+        logger.info("Informe de ventas del vendedor: " + vendedorSeleccionado.getUsername());
 
-        // Filtrar las ventas realizadas por este vendedor
         double totalVentas = 0;
         boolean ventasEncontradas = false;
         for (Venta venta : ventasCliente) {
@@ -552,9 +554,9 @@ public class Menu {
         }
 
         if (!ventasEncontradas) {
-            System.out.println("No se encontraron ventas realizadas por este vendedor.");
+            logger.info("No se encontraron ventas realizadas por este vendedor.");
         } else {
-            System.out.println("Total de ventas realizadas: $" + totalVentas);
+            logger.info("Total de ventas realizadas: $" + totalVentas);
         }
     }
 }

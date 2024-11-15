@@ -1,15 +1,18 @@
 package org.grupoklk;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
     public static void main(String[] args) {
+        Logger logger = LogManager.getLogger(Main.class);
         Scanner scanner = new Scanner(System.in);
         boolean opcion = true;
 
         while (opcion) {
             try {
-                System.out.println("Seleccione una opción:");
+                logger.info("Seleccione una opción:");
                 System.out.println("1. Español");
                 System.out.println("2. English");
                 System.out.println("3. Salir / Exit");
@@ -20,29 +23,29 @@ public class Main {
                 switch (input) {
                     case "1":
                     case "español":
-                        System.out.println("Ha seleccionado Programa En Español.");
+                        logger.info("Ha seleccionado Programa En Español.");
                         Menu.espanol();
                         break;
 
                     case "2":
                     case "english":
-                        System.out.println("You have selected Program In English.");
+                        logger.info("You have selected Program In English.");
                         System.out.println("Later is still early.");
                         break;
 
                     case "3":
                     case "salir":
                     case "exit":
-                        System.out.println("Saliendo del programa...");
+                        logger.info("Saliendo del programa...");
                         opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Opción no válida. Por favor, intente nuevamente.");
+                        logger.info("Error: Opción no válida. Por favor, intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
+                logger.info("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
                 scanner.nextLine();
             }
         }
