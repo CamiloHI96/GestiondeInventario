@@ -38,7 +38,7 @@ public class Generator {
                     faker.commerce().productName(),
                     faker.commerce().material(),
                     faker.number().randomDouble(2, 10, 1000),
-                    faker.number().numberBetween(0,0)
+                    faker.number().numberBetween(0,20)
             ));
         }
         return productos;

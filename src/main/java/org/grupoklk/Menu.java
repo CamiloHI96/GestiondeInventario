@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Menu {
     private static final Scanner scanner = new Scanner(System.in);
     private static List<User> usuariosGenerados;
-    private static List<Product> productosGenerados;
     private static List<Cliente> clientesGenerados;
+    private static List<Product> productosGenerados;
 
     public static void espanol() {
         boolean opcion = true;
@@ -40,6 +40,7 @@ public class Menu {
                     case "3":
                     case "vendedor":
                         System.out.println("Ha seleccionado Vendedor.");
+                        vendedorEsp();
                         break;
 
                     case "4":
@@ -54,54 +55,6 @@ public class Menu {
                 }
             } catch (Exception e) {
                 System.out.println("Error: Ha ocurrido un problema con la entrada. Por favor, intente nuevamente.");
-            }
-        }
-    }
-
-    public static void english() {
-        boolean opcion = true;
-
-        while (opcion) {
-            try {
-                System.out.println("Welcome to the e-store program");
-                System.out.println("Select an option:");
-                System.out.println("1. Administrator");
-                System.out.println("2. Manager");
-                System.out.println("3. Seller");
-                System.out.println("4. Exit");
-                System.out.print("Choose an option: ");
-
-                String input = scanner.nextLine().toLowerCase();
-
-                switch (input) {
-                    case "1":
-                    case "administrator":
-                        System.out.println("You have selected Administrator.");
-                        adminEng();
-                        break;
-
-                    case "2":
-                    case "manager":
-                        System.out.println("You have selected Manager.");
-                        break;
-
-                    case "3":
-                    case "seller":
-                        System.out.println("You have selected Seller.");
-                        break;
-
-                    case "4":
-                    case "exit":
-                        System.out.println("Exiting English menu...");
-                        opcion = false;
-                        break;
-
-                    default:
-                        System.out.println("Error: Invalid option. Please try again.");
-                        break;
-                }
-            } catch (Exception e) {
-                System.out.println("Error: A problem has occurred with the input. Please try again.");
             }
         }
     }
@@ -194,90 +147,48 @@ public class Menu {
         }
     }
 
-    public static void adminEng() {
-        boolean option = true;
+    public static void vendedorEsp() {
+        boolean opcion = true;
 
-        while (option) {
+        while (opcion) {
             try {
-                System.out.println("\nAdministrator Menu (English)");
-                System.out.println("1. Generate Users");
-                System.out.println("2. Show Users");
-                System.out.println("3. Generate Products");
-                System.out.println("4. Show Products");
-                System.out.println("5. Add Stock to Product");
-                System.out.println("6. Reduce Stock from Product");
-                System.out.println("7. Delete Product");
-                System.out.println("8. Create Client");
-                System.out.println("9. Show Clients");
-                System.out.println("10. Delete Client");
-                System.out.println("11. Exit");
-                System.out.print("Choose an option: ");
+                System.out.println("\nMenú Vendedor (Español)");
+                System.out.println("1. Ver Productos Disponibles");
+                System.out.println("2. Ver Clientes");
+                System.out.println("3. Realizar Venta");
+                System.out.println("4. Salir");
+                System.out.print("Elija una opción: ");
 
                 String input = scanner.nextLine().toLowerCase();
 
                 switch (input) {
                     case "1":
-                    case "generate users":
-                        generateUsers();
+                    case "ver productos disponibles":
+                        mostrarProductos();
                         break;
 
                     case "2":
-                    case "show users":
-                        showUsers();
+                    case "ver clientes":
+                        mostrarClientes();
                         break;
 
                     case "3":
-                    case "generate products":
-                        generateProducts();
+                    case "realizar venta":
+                        realizarVenta();
                         break;
 
                     case "4":
-                    case "show products":
-                        showProducts();
-                        break;
-
-                    case "5":
-                    case "add stock":
-                        addStock();
-                        break;
-
-                    case "6":
-                    case "reduce stock":
-                        reduceStock();
-                        break;
-
-                    case "7":
-                    case "delete product":
-                        deleteProduct();
-                        break;
-
-                    case "8":
-                    case "create client":
-                        createClients();
-                        break;
-
-                    case "9":
-                    case "show clients":
-                        showClients();
-                        break;
-
-                    case "10":
-                    case "delete client":
-                        deleteClient();
-                        break;
-
-                    case "11":
-                    case "exit":
-                        System.out.println("Exiting administrator menu...");
-                        option = false;
+                    case "salir":
+                        System.out.println("Saliendo del menú de vendedor...");
+                        opcion = false;
                         break;
 
                     default:
-                        System.out.println("Error: Invalid option. Please try again.");
+                        System.out.println("Error: Opción no válida. Intente nuevamente.");
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Error: A problem occurred. Please try again.");
+                System.out.println("Error: Ocurrió un problema. Intente nuevamente.");
             }
         }
     }
@@ -306,30 +217,6 @@ public class Menu {
         }
     }
 
-    private static void generateUsers() {
-        System.out.print("How many users would you like to generate? ");
-        int cantidad = Integer.parseInt(scanner.nextLine());
-
-        if (usuariosGenerados == null) {
-            usuariosGenerados = Generator.generarUsuarios(cantidad);
-        } else {
-            usuariosGenerados.addAll(Generator.generarUsuarios(cantidad));
-        }
-
-        System.out.println(cantidad + " users generated successfully.");
-    }
-
-    private static void showUsers() {
-        if (usuariosGenerados == null || usuariosGenerados.isEmpty()) {
-            System.out.println("No users have been generated to show.");
-        } else {
-            System.out.println("\nGenerated users:");
-            for (User user : usuariosGenerados) {
-                System.out.println(user);
-            }
-        }
-    }
-
     private static void generarProductos() {
         System.out.print("¿Cuántos productos desea generar? ");
         int cantidad = Integer.parseInt(scanner.nextLine());
@@ -343,38 +230,19 @@ public class Menu {
         System.out.println(cantidad + " productos generados exitosamente.");
     }
 
-    private static void mostrarProductos() {
-        if (productosGenerados == null || productosGenerados.isEmpty()) {
-            System.out.println("No hay productos generados para mostrar.");
-        } else {
-            System.out.println("\nProductos generados:");
-            for (Product producto : productosGenerados) {
-                System.out.println(producto);
+    public static void mostrarProductos() {
+        System.out.println("Productos disponibles para la venta:");
+        boolean productosDisponibles = false;
+
+        for (Product producto : productosGenerados) {
+            if (producto.getStock() > 0) {
+                System.out.println(producto); // Muestra la información del producto
+                productosDisponibles = true;
             }
         }
-    }
 
-    private static void generateProducts() {
-        System.out.print("How many products would you like to generate? ");
-        int cantidad = Integer.parseInt(scanner.nextLine());
-
-        if (productosGenerados == null) {
-            productosGenerados = Generator.generarProductos(cantidad);
-        } else {
-            productosGenerados.addAll(Generator.generarProductos(cantidad));
-        }
-
-        System.out.println(cantidad + " products generated successfully.");
-    }
-
-    private static void showProducts() {
-        if (productosGenerados == null || productosGenerados.isEmpty()) {
-            System.out.println("No products have been generated to show.");
-        } else {
-            System.out.println("\nGenerated products:");
-            for (Product product : productosGenerados) {
-                System.out.println(product);
-            }
+        if (!productosDisponibles) {
+            System.out.println("No hay productos con stock disponible.");
         }
     }
 
@@ -436,64 +304,6 @@ public class Menu {
         return null;
     }
 
-    private static void addStock() {
-        System.out.print("Enter the product ID to add stock: ");
-        String id = scanner.nextLine();
-        Product product = findProductById(id);
-
-        if (product != null) {
-            System.out.print("Enter the amount of stock to add: ");
-            int amount = Integer.parseInt(scanner.nextLine());
-            product.setStock(product.getStock() + amount);
-            System.out.println("Stock successfully updated. New stock: " + product.getStock());
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
-
-    private static void reduceStock() {
-        System.out.print("Enter the product ID to reduce stock: ");
-        String id = scanner.nextLine();
-        Product product = findProductById(id);
-
-        if (product != null) {
-            System.out.print("Enter the amount of stock to reduce: ");
-            int amount = Integer.parseInt(scanner.nextLine());
-            if (amount <= product.getStock()) {
-                product.setStock(product.getStock() - amount);
-                System.out.println("Stock successfully updated. New stock: " + product.getStock());
-            } else {
-                System.out.println("Error: The amount exceeds the current stock.");
-            }
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
-
-    private static void deleteProduct() {
-        System.out.print("Enter the product ID to delete: ");
-        String id = scanner.nextLine();
-        Product product = findProductById(id);
-
-        if (product != null) {
-            productosGenerados.remove(product);
-            System.out.println("Product successfully deleted.");
-        } else {
-            System.out.println("Product not found.");
-        }
-    }
-
-    private static Product findProductById(String id) {
-        if (productosGenerados != null) {
-            for (Product product : productosGenerados) {
-                if (product.getId().equals(id)) {
-                    return product;
-                }
-            }
-        }
-        return null;
-    }
-
     private static void crearClientes() {
         if (clientesGenerados == null) {
             clientesGenerados = new ArrayList<>();
@@ -540,49 +350,119 @@ public class Menu {
         return null;
     }
 
-    private static void createClients() {
-        if (clientesGenerados == null) {
-            clientesGenerados = new ArrayList<>();
-        }
-
-        System.out.print("How many clients would you like to generate? ");
-        int cantidad = Integer.parseInt(scanner.nextLine());
-
-        clientesGenerados.addAll(Generator.generarClientes(cantidad));
-
-        System.out.println(cantidad + " clients generated successfully.");
-    }
-
-    private static void showClients() {
-        if (clientesGenerados == null || clientesGenerados.isEmpty()) {
-            System.out.println("No clients have been generated to show.");
-        } else {
-            System.out.println("\nGenerated clients:");
-            for (Cliente client : clientesGenerados) {
-                System.out.println(client);
+    public static void realizarVenta() {
+        List<User> vendedores = new ArrayList<>();
+        for (User user : usuariosGenerados) {
+            if (user.getRol().equalsIgnoreCase("vendedor")) {
+                vendedores.add(user);
             }
         }
-    }
 
-    private static void deleteClient() {
-        System.out.print("Enter the ID number of the client you want to delete: ");
-        String id = scanner.nextLine();
-
-        Cliente client = findClientById(id);
-        if (client != null) {
-            clientesGenerados.remove(client);
-            System.out.println("Client successfully deleted.");
-        } else {
-            System.out.println("Client not found.");
+        if (vendedores.isEmpty()) {
+            System.out.println("No hay vendedores disponibles.");
+            return;
         }
-    }
 
-    private static Cliente findClientById(String cedula) {
+        System.out.println("Seleccione un vendedor de la siguiente lista:");
+        for (int i = 0; i < vendedores.size(); i++) {
+            System.out.println((i + 1) + ". " + vendedores.get(i).getUsername());
+        }
+
+        int seleccionVendedor = -1;
+        while (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
+            System.out.print("Ingrese el número del vendedor: ");
+            try {
+                seleccionVendedor = Integer.parseInt(scanner.nextLine()) - 1;
+                if (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
+                    System.out.println("Selección inválida. Por favor, elija un número de la lista.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número válido.");
+            }
+        }
+
+        User vendedorSeleccionado = vendedores.get(seleccionVendedor);
+        
+        System.out.println("\nClientes disponibles:");
         for (Cliente cliente : clientesGenerados) {
-            if (cliente.getCedula().equals(cedula)) {
-                return cliente;
+            System.out.println(cliente);
+        }
+
+        System.out.print("Ingrese el ID del cliente para realizar la venta: ");
+        String idCliente = scanner.nextLine();
+        Cliente cliente = buscarClientePorCedula(idCliente);
+
+        if (cliente == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        List<Venta> ventasCliente = new ArrayList<>();
+        double totalCompra = 0;
+
+        while (true) {
+            System.out.println("\nProductos disponibles para la venta:");
+            boolean productosDisponibles = false;
+            for (Product producto : productosGenerados) {
+                if (producto.getStock() > 0) {
+                    System.out.println(producto);
+                    productosDisponibles = true;
+                }
+            }
+
+            if (!productosDisponibles) {
+                System.out.println("No hay productos con stock disponible para la venta.");
+                break;
+            }
+
+            System.out.print("\nIngrese el ID del producto que desea vender (o 'salir' para terminar): ");
+            String idProducto = scanner.nextLine();
+
+            if (idProducto.equalsIgnoreCase("salir")) {
+                break;
+            }
+
+            Product productoSeleccionado = buscarProductoPorId(idProducto);
+
+            if (productoSeleccionado == null || productoSeleccionado.getStock() <= 0) {
+                System.out.println("Producto no disponible o sin stock.");
+                continue;
+            }
+
+            System.out.print("Ingrese la cantidad a vender: ");
+            int cantidad = Integer.parseInt(scanner.nextLine());
+
+            if (cantidad > productoSeleccionado.getStock()) {
+                System.out.println("No hay suficiente stock para la cantidad solicitada.");
+                continue;
+            }
+
+            double totalProducto = productoSeleccionado.getPrice() * cantidad;
+            totalCompra += totalProducto;
+
+            Venta nuevaVenta = new Venta(vendedorSeleccionado, cliente, productoSeleccionado, cantidad);
+            ventasCliente.add(nuevaVenta);
+
+            productoSeleccionado.actualizarStock(productoSeleccionado.getStock() - cantidad);
+
+            System.out.print("¿Desea vender otro producto? (s/n): ");
+            String respuesta = scanner.nextLine();
+            if (respuesta.equalsIgnoreCase("n")) {
+                break;
             }
         }
-        return null;
+
+        if (!ventasCliente.isEmpty()) {
+            System.out.println("\nCompra finalizada.");
+            System.out.println("Total de la compra: " + totalCompra);
+            System.out.println("Productos comprados:");
+            for (Venta venta : ventasCliente) {
+                System.out.println(venta);
+            }
+            System.out.println("¡Gracias por su compra!");
+        } else {
+            System.out.println("No se realizó ninguna venta.");
+        }
     }
+
 }

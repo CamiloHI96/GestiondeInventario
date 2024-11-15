@@ -27,7 +27,6 @@ public class Main {
                     case "2":
                     case "english":
                         System.out.println("You have selected Program In English.");
-                        Menu.english();
                         break;
 
                     case "3":
