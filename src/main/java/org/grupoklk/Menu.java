@@ -9,6 +9,7 @@ public class Menu {
     private static List<User> usuariosGenerados;
     private static List<Cliente> clientesGenerados;
     private static List<Product> productosGenerados;
+    private static List<Venta> ventasCliente = new ArrayList<>();
 
     public static void espanol() {
         boolean opcion = true;
@@ -35,6 +36,7 @@ public class Menu {
                     case "2":
                     case "gerente":
                         System.out.println("Ha seleccionado Gerente.");
+                        gerenteEsp();
                         break;
 
                     case "3":
@@ -147,6 +149,46 @@ public class Menu {
         }
     }
 
+    public static void gerenteEsp() {
+        boolean opcion = true;
+
+        while (opcion) {
+            try {
+                System.out.println("\nMenú Gerente (Español)");
+                System.out.println("1. Generar Informe de Ventas por Vendedor");
+                System.out.println("2. Generar Informe de Inventario");
+                System.out.println("3. Salir");
+                System.out.print("Elija una opción: ");
+
+                String input = scanner.nextLine().toLowerCase();
+
+                switch (input) {
+                    case "1":
+                    case "generar informe de ventas por vendedor":
+                        generarInformeVentas();
+                        break;
+
+                    case "2":
+                    case "generar informe de inventario":
+                        mostrarProductos();
+                        break;
+
+                    case "3":
+                    case "salir":
+                        System.out.println("Saliendo del menú de gerente...");
+                        opcion = false;
+                        break;
+
+                    default:
+                        System.out.println("Error: Opción no válida. Intente nuevamente.");
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error: Ocurrió un problema. Intente nuevamente.");
+            }
+        }
+    }
+
     public static void vendedorEsp() {
         boolean opcion = true;
 
@@ -236,7 +278,7 @@ public class Menu {
 
         for (Product producto : productosGenerados) {
             if (producto.getStock() > 0) {
-                System.out.println(producto); // Muestra la información del producto
+                System.out.println(producto);
                 productosDisponibles = true;
             }
         }
@@ -382,7 +424,7 @@ public class Menu {
         }
 
         User vendedorSeleccionado = vendedores.get(seleccionVendedor);
-        
+
         System.out.println("\nClientes disponibles:");
         for (Cliente cliente : clientesGenerados) {
             System.out.println(cliente);
@@ -397,7 +439,6 @@ public class Menu {
             return;
         }
 
-        List<Venta> ventasCliente = new ArrayList<>();
         double totalCompra = 0;
 
         while (true) {
@@ -441,7 +482,7 @@ public class Menu {
             totalCompra += totalProducto;
 
             Venta nuevaVenta = new Venta(vendedorSeleccionado, cliente, productoSeleccionado, cantidad);
-            ventasCliente.add(nuevaVenta);
+            ventasCliente.add(nuevaVenta);  // Usar la lista global
 
             productoSeleccionado.actualizarStock(productoSeleccionado.getStock() - cantidad);
 
@@ -464,5 +505,56 @@ public class Menu {
             System.out.println("No se realizó ninguna venta.");
         }
     }
+    
+    public static void generarInformeVentas() {
+        List<User> vendedores = new ArrayList<>();
+        for (User user : usuariosGenerados) {
+            if (user.getRol().equalsIgnoreCase("vendedor")) {
+                vendedores.add(user);
+            }
+        }
 
+        if (vendedores.isEmpty()) {
+            System.out.println("No hay vendedores disponibles.");
+            return;
+        }
+
+        System.out.println("Seleccione un vendedor de la siguiente lista:");
+        for (int i = 0; i < vendedores.size(); i++) {
+            System.out.println((i + 1) + ". " + vendedores.get(i).getUsername());
+        }
+
+        int seleccionVendedor = -1;
+        while (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
+            System.out.print("Ingrese el número del vendedor: ");
+            try {
+                seleccionVendedor = Integer.parseInt(scanner.nextLine()) - 1;
+                if (seleccionVendedor < 0 || seleccionVendedor >= vendedores.size()) {
+                    System.out.println("Selección inválida. Por favor, elija un número de la lista.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un número válido.");
+            }
+        }
+
+        User vendedorSeleccionado = vendedores.get(seleccionVendedor);
+        System.out.println("Informe de ventas del vendedor: " + vendedorSeleccionado.getUsername());
+
+        // Filtrar las ventas realizadas por este vendedor
+        double totalVentas = 0;
+        boolean ventasEncontradas = false;
+        for (Venta venta : ventasCliente) {
+            if (venta.getUser().equals(vendedorSeleccionado)) {
+                System.out.println(venta);
+                totalVentas += venta.getTotal();
+                ventasEncontradas = true;
+            }
+        }
+
+        if (!ventasEncontradas) {
+            System.out.println("No se encontraron ventas realizadas por este vendedor.");
+        } else {
+            System.out.println("Total de ventas realizadas: $" + totalVentas);
+        }
+    }
 }

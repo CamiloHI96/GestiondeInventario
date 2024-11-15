@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Venta {
     private static int contadorId = 1; // Contador para garantizar ID único
     private String id;
-    private User user; // Vendedor
+    private User user;
     private Cliente cliente;
     private Product producto;
     private int cantidad;
@@ -22,7 +22,7 @@ public class Venta {
     }
 
     private String generateUniqueId() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         LocalDateTime now = LocalDateTime.now();
         return now.format(formatter);
     }

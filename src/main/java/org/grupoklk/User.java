@@ -40,6 +40,7 @@ public class User {
         this.rol = rol;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
